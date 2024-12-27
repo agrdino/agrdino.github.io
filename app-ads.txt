@@ -1,2 +1,2 @@
 # AdMob
-google.com, pub-2222222222222222, DIRECT, f08c47fec0942fa0
+google.com, pub-7181507553938174, DIRECT, f08c47fec0942fa0
