@@ -1,528 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>sbs</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   </head>
-   <!-- body -->
-   <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Unity Developer | Thiên Đường Tí Hon & more</title>
+  <style>
+    :root {
+      --primary: #6d28d9;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      color: white;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+    section {
+      margin: 4rem 0;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .year {
+      font-size: 1.4rem;
+      color: #4b5563;
+      margin: 2.5rem 0 1rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      max-width: 300px;
+    }
+    .project {
+      margin-bottom: 3.5rem;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .project-header {
+      padding: 1.8rem 2rem;
+      background: #f3f4f6;
+    }
+    .project-header h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .project-header h3 a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .project-header h3 a:hover {
+      color: #5b21b6;
+      text-decoration: underline;
+    }
+    .project-header .role {
+      font-weight: bold;
+      color: #374151;
+    }
+    .project-body {
+      padding: 0 2rem 2rem;
+    }
+    .project-body ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    .project-body ul li {
+      margin: 0.6rem 0;
+      position: relative;
+      padding-left: 1.8rem;
+    }
+    .project-body ul li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    /* Gallery: scroll ngang + aspect 9:16 */
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      gap: 1.2rem;
+      padding: 0 2rem 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    .gallery img {
+      flex: 0 0 auto;
+      width: 240px;
+      height: calc(240px * 16 / 9); /* 9:16 portrait */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      object-fit: cover;
+      scroll-snap-align: start;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--gray);
+      border-top: 1px solid #e5e7eb;
+    }
+    @media (max-width: 768px) {
+      .gallery img {
+        width: 220px;
+        height: calc(220px * 16 / 9);
+      }
+      header h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Unity Developer Portfolio</h1>
+      <p>Thiên Đường Tí Hon • Hungry Buddy Puzzle • Match 3 Arena • ...</p>
+    </div>
+  </header>
+  <div class="container">
+    <section>
+      <h2>Dự án đã thực hiện</h2>
+      <div class="year">2024 — 2025</div>
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.sgpn.hungrybuddy.puzzle&hl=en" target="_blank">Hungry Buddy Puzzle</a></h3>
+          <div class="role">Unity Developer — Saigon PNTech</div>
+        </div>
+        <div class="project-body">
+          <p>Hungry Buddy Puzzle is a strategic puzzle game where you become a master of queue management and space strategy. Players must organize and manage a queue of hungry “Buddies” — cute animal characters like Elephant, Bird, Hamster, Cat, Rabbit, Dog, Tiger, and Squirrel — helping them get their food in time without causing a jam in the waiting area. The challenge lies in planning moves carefully and expanding or locking slots to handle increasingly complex levels and puzzles. </p>
+          <ul>
+            <li>Queue-based puzzle mechanics with deterministic outcomes</li>
+            <li>Easy to add new characters or mechanics via config</li>
+            <li>Scalable for adding boosters or special modes</li>
+            <li>Track level completion, retries, fail points</li>
+            <li>IAP, Ads, Google Firebase, Ads Mediation</li>
+          </ul>
+        </div>
+        <div class="gallery">
+          <img src="https://play-lh.googleusercontent.com/sWyM4wdadC5JpxNzQg6lO6W1Pv__srHtS2npYtrglqb6nVmzFqATipf-7DIcG_ttlwQlHOkoY_WDGG-4F-lpLQ=w2560-h1440-rw" alt="Hungry Buddy Puzzle - Gameplay 1">
+          <img src="https://play-lh.googleusercontent.com/hC2nish6lKknKdKSHpFkPe2kb4bPrU-zn__qMabKhSr1wnwRbFr-vuizffFhUrzv3X1J8WqsJlEBBLV2ePJpcQ=w2560-h1440-rw" alt="Hungry Buddy Puzzle - Gameplay 2">
+          <img src="https://play-lh.googleusercontent.com/GXSfUamyqYXIN6Q0-raKZHtkT6USpGS83XnnZZ2R4CL2QLiUWPVzwXl21Ny_cfD2c6bwEJbQE1ATVsk4r0kr4KU=w2560-h1440-rw" alt="Hungry Buddy Puzzle - Gameplay 3">
+          <img src="https://play-lh.googleusercontent.com/ridSYQS4AyVhC9bCDhEAsqYrbcNJa24ujm_LlzwthFmo05eOF90wLmItmkWYGR-fNtauCaW2nSSN9c7rWJxL=w2560-h1440-rw" alt="Hungry Buddy Puzzle - Gameplay 4">
+        </div>
       </div>
-      <!-- end loader -->
-      <!-- header -->
-      <div class="header">
-         <div class="container-fluid">
-            <div class="row d_flex">
-               <div class=" col-md-2 col-sm-3 col logo_section">
-                  <div class="full">
-                     <div class="center-desk">
-                        <div class="logo">
-                           <a href="index.html"><img src="images/logo.png" alt="#" /></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-8 col-sm-12">
-                  <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                     </button>
-                     <div class="collapse navbar-collapse" id="navbarsExample04">
-                        <ul class="navbar-nav mr-auto">
-                           <li class="nav-item active">
-                              <a class="nav-link" href="index.html">Home</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="about.html">About</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="skating.html">skating</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="shop.html">shop</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="contact.html">Contact Us</a>
-                           </li>
-                        </ul>
-                     </div>
-                  </nav>
-               </div>
-               <div class="col-md-2">
-                  <ul class="email text_align_right">
-                     <li class="d_none"><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                     <li class="d_none"> <a href="Javascript:void(0)"><i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"></i></a> </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.fc.sn.mini.home.unpacking.relaxing.games" target="_blank">Thiên Đường Tí Hon</a></h3>
+          <div class="role">Unity Developer</div>
+        </div>
+        <div class="project-body">
+          <p>Relaxing unpack & home decorating puzzle game với trải nghiệm chill.</p>
+          <ul>
+            <li>Drag-and-drop đặt đồ từ hộp vào không gian phòng</li>
+            <li>Dynamic loading scenes/objects tối ưu performance mobile</li>
+            <li>Track level completion, retries, fail points</li>
+            <li>IAP, Ads, Google Firebase, Ads Mediation</li>
+          </ul>
+        </div>
+        <div class="gallery">
+          <img src="https://play-lh.googleusercontent.com/03rd7LewMprvRiwJGmjauIf7mx8Fk5_k8K0OEZYRfADkwlJwznQ6EjCQ-6fUGN0ZGnc=w2560-h1440-rw" alt="Thiên Đường Tí Hon - Room Decoration 1">
+          <img src="https://play-lh.googleusercontent.com/e2b7aznAxw-RVbFDjmDURt4L0r_3bg6uiW38UZ3QMAu-qViChPzSgYOrJlhmOe4SltA=w2560-h1440-rw" alt="Thiên Đường Tí Hon - Room Decoration 2">
+          <img src="https://play-lh.googleusercontent.com/iqdVdZMcj8ToKGv8GeZtZ5ue37qZ0s3t-T-zadGKBvSiqcEdAj47kDudaaEYIYheOBWo=w2560-h1440-rw" alt="Thiên Đường Tí Hon - Room Decoration 3">
+          <img src="https://play-lh.googleusercontent.com/PnlaII-8fTNWPWyYmz1VQOgSixKCKvOY0QrEVSUzamBCn9DlwLt8rl9TmZJ_ToRoNPc=w2560-h1440-rw" alt="Thiên Đường Tí Hon - Room Decoration 4">
+          <img src="https://play-lh.googleusercontent.com/VV9ed-H0TFI35LOKdM_rryTYpNSeQoyl62YGbrq0b4aF86R6xwiFtY2Ax0bW1yCa6io=w2560-h1440-rw" alt="Thiên Đường Tí Hon - Room Decoration 5">
+        </div>
       </div>
-      <!-- end header inner -->
-      <!-- end header -->
-      <!-- top -->
-      <div class="full_bg">
-         <div class="slider_main">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-md-12">
-                     <!-- carousel code -->
-                     <div id="carouselExampleIndicators" class="carousel slide">
-                        <ol class="carousel-indicators">
-                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                           <!-- first slide -->
-                           <div class="carousel-item active">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div  class="col-md-5">
-                                       <div class="board">
-                                          <i><img src="images/top_icon.png" alt="#"/></i>
-                                          <h3>
-                                             Skating<br> Board<br> School
-                                          </h3>
-                                          <div class="link_btn">
-                                             <a class="read_more" href="Javascript:void(0)">Read More   <span></span></a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                       <div class="banner_img">
-                                          <figure><img class="img_responsive" src="images/banner_img.png"></figure>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <!-- second slide -->
-                           <div class="carousel-item">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div  class="col-md-5">
-                                       <div class="board">
-                                          <i><img src="images/top_icon.png" alt="#"/></i>
-                                          <h3>
-                                             Skating<br> Board<br> School
-                                          </h3>
-                                          <div class="link_btn">
-                                             <a class="read_more" href="Javascript:void(0)">Read More   <span></span></a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                       <div class="banner_img">
-                                          <figure><img class="img_responsive" src="images/banner_img.png"></figure>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <!-- third slide-->
-                           <div class="carousel-item">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div  class="col-md-5">
-                                       <div class="board">
-                                          <i><img src="images/top_icon.png" alt="#"/></i>
-                                          <h3>
-                                             Skating<br> Board<br> School
-                                          </h3>
-                                          <div class="link_btn">
-                                             <a class="read_more" href="Javascript:void(0)">Read More   <span></span></a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                       <div class="banner_img">
-                                          <figure><img class="img_responsive" src="images/banner_img.png"></figure>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- controls -->
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span class="sr-only">Next</span>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.amg.satisworld.perfectly.tidy" target="_blank">Satisworld: Gọn gàng hoàn hảo</a></h3>
+          <div class="role">Unity Developer</div>
+        </div>
+        <div class="project-body">
+          <p>Relaxing cleaning & organizing game kết hợp ASMR, tidying, decorating môi trường.</p>
+          <ul>
+            <li>Drag-and-drop sắp xếp đồ đạc</li>
+            <li>Dynamic loading tối ưu mobile</li>
+            <li>Track level completion, fail points</li>
+            <li>Google Firebase, IAP, Ads Mediation</li>
+          </ul>
+        </div>
+        <div class="gallery">
+          <img src="https://play-lh.googleusercontent.com/hWUMTCqaJjtbD_sxEnewurr5Pait-Ltp86WQFhSyj4MOCzh9beJvOb8HoX76cf7ASA=w2560-h1440-rw" alt="Satisworld - Gameplay 1">
+          <img src="https://play-lh.googleusercontent.com/OowIAjMSep0XcRlRigoFvrWVXw9Db3movxLbIdjHkYflH1w0VbkweGzhxG5Xe8utAE1wck5rhUnPJrN2cst3Iro=w2560-h1440-rw" alt="Satisworld - Gameplay 2">
+          <img src="https://play-lh.googleusercontent.com/5xRkozalFYtn5tlEKFFvf4vRzVaAeJIFxQQxBjKn8P88RxSOU9DTFswgm-piiOyfa4k=w2560-h1440-rw" alt="Satisworld - Gameplay 3">
+        </div>
       </div>
-      <!-- end banner -->
-      <!-- our class -->
-      <div class="class">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Our Skating Class</h2>
-                     <p>There are many variations of passages of Lorem</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-4 margi_bottom">
-                  <div class="class_box text_align_center">
-                     <i><img src="images/class1.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
-                  </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
-               </div>
-               <div class="col-md-4 margi_bottom">
-                  <div class="class_box blue text_align_center">
-                     <i><img src="images/class2.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
-                  </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
-               </div>
-               <div class="col-md-4 margi_bottom">
-                  <div class="class_box text_align_center">
-                     <i><img src="images/class3.png" alt="#"/></i>
-                     <h3>Skateboard</h3>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations </p>
-                  </div>
-                  <a class="read_more" href="Javascript:void(0)">Read More</a>
-               </div>
-            </div>
-         </div>
+
+      <div class="year">2023 — 2024</div>
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.match3arena.puzzleforge" target="_blank">Match 3 Arena: Real-time PvP</a></h3>
+          <div class="role">Unity Developer — BlissHub</div>
+        </div>
+        <div class="project-body">
+          <p>Real-time multiplayer match-3 RPG với PvP head-to-head, kết hợp puzzle-matching, timing, boosters và progression.</p>
+          <ul>
+            <li>Real-time PvP battles với người chơi toàn cầu</li>
+            <li>Competitive ladder & Trophy Road</li>
+            <li>Social login, progression system</li>
+            <li>Unity Netcode for GameObjects, Google Firebase, Admob</li>
+          </ul>
+        </div>
+        <div class="gallery">
+         <iframe 
+            src="https://www.youtube.com/embed/Lvff5F4HLic" 
+            title="Match 3 Arena: Real-time PvP - Official Trailer / Gameplay" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <img src="https://play-lh.googleusercontent.com/ZTTZjRcHEMIvabFaAX4ZRNcYl6LjfpaL7Kb6wO75Sm9oi8Y4TI2T6WnPOuTNrJxL1zY=w2560-h1440-rw" alt="Match 3 Arena - PvP Battle">
+          <img src="https://play-lh.googleusercontent.com/Wjd3LOMUTiQ7K9K29P_t1hEgtTzK7s2gBZ-A4lBS1AebOFrMEqHhPbiUcmH9rvJ1smA=w2560-h1440-rw" alt="Match 3 Arena - Trophy Road">
+          <img src="https://play-lh.googleusercontent.com/eXzoCdxWbj1TDpFZmvLlxG_3Hez83dEUf4JDXzI9aeaW6Xae2tnyl0MMDOWvZxYGn3U=w2560-h1440-rw" alt="Match 3 Arena">
+        </div>
       </div>
-      <!-- end our class -->
-      <!-- about -->
-      <div class="about">
-         <div class="container-fluid">
-            <div class="row d_flex">
-               <div class="col-md-6">
-                  <div class="titlepage text_align_left">
-                     <h2>About <br>Skating <br> school</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variatioThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variationsns
-                     </p>
-                     <div class="link_btn">
-                        <a class="read_more" href="about.html">Read More</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="about_img text_align_center">
-                     <figure><img src="images/about.png" alt="#"/></figure>
-                  </div>
-               </div>
-            </div>
-         </div>
+
+      <div class="year">2021 — 2023</div>
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=jp.co.yotsuya_s.ieru" target="_blank">ieRU~イエル。~</a></h3>
+          <div class="role">Unity Developer — Gianty</div>
+        </div>
+        <div class="project-body">
+          <p>ieRU is a parenting support app designed to help parents better understand, communicate with, and raise their children. The app provides practical advice, guidance, and emotional support for daily parenting challenges, helping parents respond calmly and confidently to their child’s behavior. With a friendly and easy-to-use design, ieRU supports parents throughout different stages of child development.</p>
+          <ul>
+            <li>Update content remotely without requiring app updates</li>
+            <li>Create and manage multiple child profiles</li>
+            <li>Easy to add new scenarios without changing core logic</li>
+            <li>Scheduled and event-based push notifications</li>
+            <li>IAP</li>
+          </ul>
+        </div>
       </div>
-      <!-- end about -->
-      <!-- skating -->
-      <div class="skating">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Skating  Video</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="skating-box ">
-                     <figure><img src="images/sakt1.png" alt="#"/></figure>
-                     <div class="link_btn">
-                        <a class="read_more" href="Javascript:void(0)">See More</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="skating-box">
-                     <figure><img src="images/sakt2.png" alt="#"/></figure>
-                     <div class="link_btn">
-                        <a class="read_more" href="Javascript:void(0)">See More</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="skating-box">
-                     <figure><img src="images/sakt3.png" alt="#"/></figure>
-                     <div class="link_btn">
-                        <a class="read_more" href="Javascript:void(0)">See More</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
+      <div class="year">2020 — 2021</div>
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.fancycornstudio.yatzy&hl=en" target="_blank">Yatzy: Dice Game Online</a></h3>
+          <div class="role">Unity Developer — FancyCorn Studio</div>
+        </div>
+        <div class="project-body">
+          <p>Players roll dice to create scoring combinations, making strategic choices to maximize points. Easy to learn yet challenging to master, the game combines luck, quick thinking, and cultural flavor for engaging, casual gameplay.</p>
+          <ul>
+            <li>Dice roll, hold, and re-roll mechanics</li>
+            <li>Combination detection (pair, full house, straight, yatzy, etc.)</li>
+            <li>Easy to extend with new rules or modes</li>
+            <li>BOT: Multiple difficulty levels</li>
+            <li>Google Firebase, IAP, Ads Mediation</li>
+          </ul>
+        </div>
+        <div class="gallery">
+           <iframe 
+            src="https://www.youtube.com/embed/pE28xf7rjqY" 
+            title="Match 3 Arena: Real-time PvP - Official Trailer / Gameplay" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <img src="https://play-lh.googleusercontent.com/pTIYUHW6ljEvhYyYmjY1NOTAPx8XHIOwb0PruGo0bJrawfOKz9uZW2dAgupaCotxMjs=w2560-h1440-rw" alt="Yatzy">
+          <img src="https://play-lh.googleusercontent.com/fit12lt3T4Ouur9UEDrepEV0wBGoAlIvg82cuonhrWVsNEJ4yLEa3k-SZ37M2Hr9D_Q=w2560-h1440-rw" alt="Yatzy">
+        </div>
       </div>
-      <!-- end skating -->
-      <!-- shop -->
-      <div class="shop">
-         <div class="container-fluid">
-            <div class="row d_flex d_grid">
-               <div class="col-md-7">
-                  <div class="shop_img text_align_center" data-aos="fade-right">
-                     <figure><img class="img_responsive" src="images/shop.png" alt="#"/></figure>
-                  </div>
-               </div>
-               <div class="col-md-5 order_1_mobile">
-                  <div class="titlepage text_align_left ">
-                     <h2>Our  Skate <br>Shop</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variatioThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variationsns
-                     </p>
-                     <a class="read_more" href="shop.html">Buy Now</a>
-                  </div>
-               </div>
-            </div>
-         </div>
+
+      <div class="project">
+        <div class="project-header">
+          <h3><a href="https://play.google.com/store/apps/details?id=com.antada.Spades&hl=en_US" target="_blank">Spades Card Game</a></h3>
+          <div class="role">Unity Developer — FancyCorn Studio</div>
+        </div>
+        <div class="project-body">
+          <p>Spades Card Game is a classic trick-taking card game played by four players in teams of two. Players bid on the number of tricks they expect to win, then work with their partner using strategy and timing to meet the bid. Spades are always trump, making every round a mix of planning, teamwork, and smart card play.</p>
+          <ul>
+            <li>2v2 gameplay emphasizing cooperation and coordination</li>
+            <li>Strategic bidding before each round</li>
+            <li>Easy to extend with new rules or modes</li>
+            <li>BOT: Multiple difficulty levels</li>
+            <li>Google Firebase, IAP, Ads Mediation</li>
+          </ul>
+        </div>
       </div>
-      <!-- end shop -->
-      <!-- testimonial -->
-      <div class="testimonial">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Testimonial</h2>
-                  </div>
-               </div>
-            </div>
-            <!-- start slider section -->
-            <div class="row">
-               <div class="col-md-12">
-                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                     </ol>
-                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                           <div class="container-fluid">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test1.png" alt="#"/></span>
-                                          <h4>Jone Lo</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                       <div class="test_box white_bg text_align_center">
-                                          <span><img src="images/test2.png" alt="#"/></span>
-                                          <h4>Michale</h4>
-                                          <img class="img_responsive" src="images/te2.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test3.png" alt="#"/></span>
-                                          <h4>Disol</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item">
-                           <div class="container-fluid">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test2.png" alt="#"/></span>
-                                          <h4>Michale</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                       <div class="test_box white_bg text_align_center">
-                                          <span><img src="images/test3.png" alt="#"/></span>
-                                          <h4>Disol</h4>
-                                          <img class="img_responsive" src="images/te2.png" alt="#"/>
-                                          <p> humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test1.png" alt="#"/></span>
-                                          <h4>Jone Lo</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="carousel-item">
-                           <div class="container-fluid">
-                              <div class="carousel-caption relative">
-                                 <div class="row d_flex">
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test3.png" alt="#"/></span>
-                                          <h4>Disol</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                       <div class="test_box  white_bg text_align_center">
-                                          <span><img src="images/test1.png" alt="#"/></span>
-                                          <h4>Jone Lo</h4>
-                                          <img class="img_responsive" src="images/te2.png" alt="#"/>
-                                          <p> humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                       <div class="test_box text_align_center">
-                                          <span><img src="images/test2.png" alt="#"/></span>
-                                          <h4>Michale</h4>
-                                          <img class="img_responsive" src="images/te.png" alt="#"/>
-                                          <p>humour, or randomised words which don't look even slightly believable. If you are</p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                     <i class="fa fa-angle-left" aria-hidden="true"></i>
-                     <span class="sr-only">Previous</span>
-                     </a>
-                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                     <span class="sr-only">Next</span>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end testimonial -->
-      <!--  footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-4 ">
-                     <div class="infoma">
-                        <h3>Contact Us</h3>
-                        <ul class="conta">
-                           <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations 
-                           </li>
-                           <li><i class="fa fa-phone" aria-hidden="true"></i>Call +01 1234567890</li>
-                           <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="Javascript:void(0)"> demo@gmail.com</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-8">
-                     <div class="row border_left">
-                        <div class="col-md-12">
-                           <div class="infoma">
-                              <h3>Newsletter</h3>
-                              <form class="form_subscri">
-                                 <div class="row">
-                                    <div class="col-md-12">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <input class="newsl" placeholder="Enter your email" type="text" name="Enter your email">
-                                    </div>
-                                    <div class="col-md-4">
-                                       <button class="subsci_btn">subscribe</button>
-                                    </div>
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                        <div class="col-md-9">
-                           <div class="infoma">
-                              <h3>Useful Link</h3>
-                              <ul class="fullink">
-                                 <li><a href="index.html">Home</a></li>
-                                 <li><a href="about.html">About</a></li>
-                                 <li><a href="skating.html">Skating</a></li>
-                                 <li><a href="shop.html">Shop</a></li>
-                                 <li><a href="contact.html">Contact Us</a></li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="col-md-3">
-                           <div class="infoma text_align_left">
-                              <ul class="social_icon">
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                 <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <p>© 2020 All Rights Reserved. Design by <a href="https://html.design/"> Free html Templates</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/custom.js"></script>
-      <script>
-         AOS.init();
-      </script>
-   </body>
+
+    </section>
+  </div>
+  <footer>
+    <p>© 2026 Unity Developer Portfolio — Contact: tlmtri.dino@gmail.com</p>
+  </footer>
+</body>
 </html>
