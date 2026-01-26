@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Unity Developer | Thiên Đường Tí Hon & more</title>
+  <title>Portfolio - Unity Developer | Tri</title>
   <style>
     :root {
-      --primary: #6d28d9;
-      --dark: #111827;
+      --primary: #8b5cf6;       /* tím sáng hơn một chút cho dark mode */
+      --dark: #0f0f17;
+      --darker: #1e1e2e;
+      --text: #e2e8f0;
+      --text-secondary: #94a3b8;
       --light: #f9fafb;
       --gray: #6b7280;
     }
@@ -18,8 +21,8 @@
     }
     body {
       font-family: system-ui, -apple-system, sans-serif;
-      background: var(--light);
-      color: var(--dark);
+      background: var(--dark);
+      color: var(--text);
       line-height: 1.6;
     }
     .container {
@@ -29,49 +32,67 @@
     }
     header {
       text-align: center;
-      padding: 4rem 0 3rem;
-      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      padding: 7rem 0 5rem;
+      background-image: url('https://yt3.googleusercontent.com/e-cDKk6ubU4yDrnP4sIOiIQ9-oT_-ulDoIrQclRggn-16ciQ_HqOZUzW1wHEd3O1rZP_Tpzq=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* overlay tối hơn */
+      z-index: 1;
+    }
+    header > * {
+      position: relative;
+      z-index: 2;
     }
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.8rem;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.8);
     }
     header p {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       opacity: 0.9;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
     section {
-      margin: 4rem 0;
+      margin: 5rem 0;
     }
     h2 {
       color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
       text-align: center;
     }
     .year {
-      font-size: 1.4rem;
-      color: #4b5563;
-      margin: 2.5rem 0 1rem;
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      margin: 3rem 0 1.5rem;
       border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.5rem;
-      max-width: 300px;
+      padding-bottom: 0.6rem;
+      max-width: 320px;
     }
     .project {
-      margin-bottom: 3.5rem;
-      background: white;
-      border-radius: 12px;
+      margin-bottom: 4rem;
+      background: var(--darker);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      border: 1px solid #2d2d44;
     }
     .project-header {
-      padding: 1.8rem 2rem;
-      background: #f3f4f6;
+      padding: 2rem;
+      background: linear-gradient(to right, #2d2d44, #1e1e2e);
     }
     .project-header h3 {
-      font-size: 1.8rem;
-      margin-bottom: 0.4rem;
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
     }
     .project-header h3 a {
       color: var(--primary);
@@ -79,40 +100,42 @@
       transition: color 0.2s;
     }
     .project-header h3 a:hover {
-      color: #5b21b6;
+      color: #a78bfa;
       text-decoration: underline;
     }
     .project-header .role {
       font-weight: bold;
-      color: #374151;
+      color: var(--text-secondary);
     }
     .project-body {
-      padding: 0 2rem 2rem;
+      padding: 0 2rem 2.5rem;
+    }
+    .project-body p {
+      color: var(--text);
     }
     .project-body ul {
       list-style: none;
-      margin: 1rem 0;
+      margin: 1.2rem 0;
     }
     .project-body ul li {
-      margin: 0.6rem 0;
+      margin: 0.7rem 0;
       position: relative;
       padding-left: 1.8rem;
+      color: var(--text-secondary);
     }
     .project-body ul li::before {
       content: "•";
       color: var(--primary);
       position: absolute;
       left: 0;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       line-height: 1;
     }
-
-    /* Gallery: scroll ngang + aspect 9:16 */
     .gallery {
       display: flex;
       flex-direction: row;
-      gap: 1.2rem;
-      padding: 0 2rem 2rem;
+      gap: 1.5rem;
+      padding: 0 2rem 2.5rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -127,27 +150,45 @@
     }
     .gallery img {
       flex: 0 0 auto;
-      width: 240px;
-      height: calc(240px * 16 / 9); /* 9:16 portrait */
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      width: 260px;
+      height: calc(260px * 16 / 9);
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
       object-fit: cover;
       scroll-snap-align: start;
     }
-
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
     footer {
       text-align: center;
-      padding: 3rem 0;
-      color: var(--gray);
-      border-top: 1px solid #e5e7eb;
+      padding: 4rem 0 3rem;
+      color: var(--text-secondary);
+      border-top: 1px solid #2d2d44;
     }
     @media (max-width: 768px) {
-      .gallery img {
-        width: 220px;
-        height: calc(220px * 16 / 9);
+      header {
+        padding: 5rem 0 3.5rem;
       }
       header h1 {
-        font-size: 2.4rem;
+        font-size: 3rem;
+      }
+      .gallery img {
+        width: 240px;
+        height: calc(240px * 16 / 9);
       }
     }
   </style>
@@ -155,8 +196,8 @@
 <body>
   <header>
     <div class="container">
-      <h1>Unity Developer Portfolio</h1>
-      <p>Thiên Đường Tí Hon • Hungry Buddy Puzzle • Match 3 Arena • ...</p>
+      <h1>Tran Le Minh Tri</h1>
+      <p>Unity Developer</p>
     </div>
   </header>
   <div class="container">
