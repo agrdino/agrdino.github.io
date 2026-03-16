@@ -1,0 +1,8 @@
+<head>
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="Tiêu đề bài viết của bạn" />
+  <meta property="og:description" content="Mô tả ngắn về nội dung" />
+  <meta property="og:image" content="https://example.com/anh-cua-ban.jpg" />
+  <meta property="og:url" content="https://example.com/duong-dan-trang" />
+  <meta property="og:type" content="website" />
+</head>
